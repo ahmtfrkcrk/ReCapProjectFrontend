@@ -12,4 +12,4 @@ export class BrandService {
   getBrands():Observable<BrandResponseModel> {
 return this.httpClient.get<BrandResponseModel>(this.apiUrl);
 }
-}
+} 

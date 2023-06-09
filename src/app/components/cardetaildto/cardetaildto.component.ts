@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { CarDetailDto } from 'src/app/models/cardetaildto';
+import { CarDetailDto } from 'src/app/models/carDetailDto';
 import { CarDetailDtoService } from 'src/app/services/car-detail-dto.service';
 
 @Component({
-  selector: 'app-cardetaildto',
-  templateUrl: './cardetaildto.component.html',
-  styleUrls: ['./cardetaildto.component.css']
+  selector: 'app-carDetailDto',
+  templateUrl: './carDetailDto.component.html',
+  styleUrls: ['./carDetailDto.component.css']
 })
-export class CardetaildtoComponent implements OnInit{
+export class CarDetailDtoComponent implements OnInit{
 
   carDetails:CarDetailDto[]=[]
   dataLoaded=false;

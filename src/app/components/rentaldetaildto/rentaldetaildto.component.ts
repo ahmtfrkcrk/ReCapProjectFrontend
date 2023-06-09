@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { RentalDetailDto } from 'src/app/models/rentaldetaildto';
+import { RentalDetailDto } from 'src/app/models/rentalDetailDto';
 import { RentalDetailDtoService } from 'src/app/services/rental-detail-dto.service';
 
 @Component({
-  selector: 'app-rentaldetaildto',
-  templateUrl: './rentaldetaildto.component.html',
-  styleUrls: ['./rentaldetaildto.component.css'],
+  selector: 'app-rentalDetailDto',
+  templateUrl: './rentalDetailDto.component.html',
+  styleUrls: ['./rentalDetailDto.component.css'],
 })
 export class RentalDetailDtoComponent implements OnInit {
   rentalDetails: RentalDetailDto[] = [];

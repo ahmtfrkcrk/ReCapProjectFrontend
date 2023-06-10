@@ -4,7 +4,8 @@ import { CarDetailDtoComponent } from './components/carDetailDto/carDetailDto.co
 
 const routes: Routes = [
   {path:"",pathMatch:"full", component:CarDetailDtoComponent},
-  {path:"carDetailDto",component:CarDetailDtoComponent}
+  {path:"carDetailDto",component:CarDetailDtoComponent},
+  {path:"carDetailDto/brand/:brandId",component:CarDetailDtoComponent}
 ];
 
 @NgModule({

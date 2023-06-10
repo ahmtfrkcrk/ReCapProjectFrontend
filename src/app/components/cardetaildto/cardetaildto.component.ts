@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CarDetailDto } from 'src/app/models/carDetailDto';
 import { CarDetailDtoService } from 'src/app/services/car-detail-dto.service';
 
@@ -11,10 +12,18 @@ export class CarDetailDtoComponent implements OnInit{
 
   carDetails:CarDetailDto[]=[]
   dataLoaded=false;
-  constructor(private carDetailDtoService:CarDetailDtoService){}
+  constructor(private carDetailDtoService:CarDetailDtoService,
+  private activatedRoute:ActivatedRoute){}
 
   ngOnInit(): void {
-    this.getDetails();
+    this.activatedRoute.params.subscribe(params=>{
+      if(params["brandId"]){
+        this.getDetailsByBrand(params["brandId"]);
+      }
+      else{
+        this.getDetails();
+      }
+    })
 
   }
   getDetails(){
@@ -23,4 +32,11 @@ export class CarDetailDtoComponent implements OnInit{
       this.dataLoaded=true;
     })
   }
+  getDetailsByBrand(brandId:number){
+    this.carDetailDtoService.getCarDetailsByBrand(brandId).subscribe(response=>{
+      this.carDetails=response.data
+      this.dataLoaded=true;
+    })
+  }
+
 }

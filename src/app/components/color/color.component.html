@@ -1,15 +1,9 @@
-<div *ngIf="dataLoaded==false" class="spinner-border text-danger" role="status">
-    <span class="visually-hidden">Loading...</span>
-</div>
-<table *ngIf="dataLoaded==true" class="table table-bordered border-primary">
-    <thead>
-        <tr >
-            <th class="text-bg-primary p-3">Color Id</th>
-            <th class="text-bg-primary p-3">Color Name</th>
-        </tr>
-    </thead>
-    <tr *ngFor="let color of colors">
-        <td class="text-bg-light p-3">{{color.colorId}}</td>
-        <td class="text-bg-light p-3">{{color.colorName}}</td>
-    </tr>
-</table>
+<div class="text-center text-bg-dark p-3">
+    <strong>Renkler</strong>
+  </div>
+<ul class="list-group">
+    <li *ngFor="let color of colors" 
+    >{{color.colorName}} </li>
+</ul>
+
+

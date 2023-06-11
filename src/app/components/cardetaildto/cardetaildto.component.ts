@@ -20,6 +20,9 @@ export class CarDetailDtoComponent implements OnInit{
       if(params["brandId"]){
         this.getDetailsByBrand(params["brandId"]);
       }
+      else if(params["colorId"]){
+        this.getDetailsByColor(params["colorId"]);
+      }
       else{
         this.getDetails();
       }
@@ -34,6 +37,12 @@ export class CarDetailDtoComponent implements OnInit{
   }
   getDetailsByBrand(brandId:number){
     this.carDetailDtoService.getCarDetailsByBrand(brandId).subscribe(response=>{
+      this.carDetails=response.data
+      this.dataLoaded=true;
+    })
+  }
+  getDetailsByColor(colorId:number){
+    this.carDetailDtoService.getCarDetailsByColor(colorId).subscribe(response=>{
       this.carDetails=response.data
       this.dataLoaded=true;
     })

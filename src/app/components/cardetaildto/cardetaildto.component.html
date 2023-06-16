@@ -1,19 +1,60 @@
-<div *ngIf="dataLoaded==false" class="spinner-border text-danger" role="status">
-    <span class="visually-hidden">Loading...</span>
-</div>
-<table *ngIf="dataLoaded==true" class="table table-bordered">
-    <thead>
-        <tr>
-            <th class="text-center text-bg-dark p-3">Brand Name</th>
-            <th class="text-center text-bg-dark p-3">Color Name</th>
-            <th class="text-center text-bg-dark p-3">Daily Price</th>
-            <th class="text-center text-bg-dark p-3">Description</th>
-        </tr>
-    </thead>
-    <tr *ngFor="let carDetail of carDetails">
-        <td class="text-bg-light p-3">{{carDetail.brandName}}</td>
-        <td class="text-bg-light p-3">{{carDetail.colorName}}</td>
-        <td class="text-bg-light p-3">{{carDetail.dailyPrice}}</td>
-        <td class="text-bg-light p-3">{{carDetail.description}}</td>
-    </tr>
-</table>
+
+<div class="row ">
+    <div *ngIf="carImages.length > 0" id="carouselExampleIndicators" class="carousel slide " data-bs-ride="true">
+        <ol class="carousel-indicators">
+          <li data-bs-target="#carouselExampleIndicators" *ngFor="let carImage of carImages; let i = index" 
+          [attr.data-bs-slide-to]="i" [class.active]="i == 0"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item" *ngFor="let carImage of carImages; let i = index" [class.active]="i == 0">
+            <img [src]="getImagePath(carImage)" class="d-block fit" alt="car image">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next"  type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div> 
+</div>   
+  <br>
+    <div class="col-md-9 cardsize" 
+    
+    *ngFor = "let car of carDetails " >
+      <div class="card  ">
+       
+
+        <div class="card-body">
+          
+          <h4 class="card-title text-center">{{car.brandName |uppercase}} </h4>
+         
+        </div>
+        <ul class="list-group list-group-flush text-center text-bolder">
+          <li class="list-group-item"><i><b>Model Yılı</b></i> | {{car.modelYear}}</li>
+          <li class="list-group-item"><i><b>Renk</b></i> | {{car.colorName}}</li>
+          <li class="list-group-item"><i><b>Detaylar</b></i> | {{car.description}}</li>
+          <li class="list-group-item"><i><b>Günlük Fiyat</b></i> | {{car.dailyPrice  | currency:"₺ " }}</li>
+          <li class="list-group-item"><i><b>Aylık Fiyat %20 indirimli</b></i>  {{(car.dailyPrice *30 )*0.8|  currency:"₺"  }}</li>
+          
+        </ul>
+       
+      </div>
+      <br>
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

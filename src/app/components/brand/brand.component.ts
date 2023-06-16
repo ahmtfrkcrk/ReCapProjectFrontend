@@ -34,5 +34,5 @@ export class BrandComponent implements OnInit {
     {
       return 'list-group-item';
     }
-  }
+  } 
 }

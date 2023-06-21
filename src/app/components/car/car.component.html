@@ -1,26 +1,35 @@
 <div class="row">
     <div>
     </div>
+
+    <div class="mb-3">
+      <label for="filterText"  class="form-label">Markasına göre ara</label>
+      <input type="text" [(ngModel)]="filterText" class="form-control"  id="filterText" 
+      placeholder="Arama ifadesi giriniz">
+    </div>
+    <div *ngIf="filterText.length>2" class="alert alert-success">
+  {{filterText}} aradınız.
+
+    </div>
     <div class="col-md-1 buton">
     </div>
     <div class="cardbody"
     (click)="setCurrentCar(car)"
     routerLink="/cars/car/{{ car.carId }}"
       class="col-md-4"
-      *ngFor="let car of cars">
+      *ngFor="let car of cars | filterPipeCar:filterText">
       <div class="card" style="width: 18rem">
           <img
             [src]="getCarImage(car)"
             class="img-fluid card-img-top resim d-flex size"
             alt="..."
           />
-  
           <div class="card-body">
-            <h3 class="card-title text-center">{{ car.modelName }}</h3>
+            <h3 class="card-title text-center">{{ car.brandName }}</h3>
           </div>
           <ul class="list-group list-group-flush text-center text-bolder">
             <li class="list-group-item">
-              <i><b>Marka</b></i> | {{ car.brandName }}
+              <i><b>Model</b></i> | {{ car.modelName }}
             </li>
             <li class="list-group-item">
               <i><b>Model Yılı</b></i> | {{ car.modelYear }}

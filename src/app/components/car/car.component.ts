@@ -18,6 +18,7 @@ export class CarComponent implements OnInit{
   cars : Car[]=[];
   brands: Brand[]=[];
   colors : Color[]=[];
+  filterText="";
   
   imageUrl="https://localhost:44326/uploads/images/";
   carImages:CarImage[]=[];

@@ -1,10 +1,21 @@
-<div class="text-center text-bg-dark p-3">
-    <strong>Renkler</strong>
+<ul class="list-group topsize">
+
+  <li class="list-group-item text-center text-white bg-dark" (click)="reset()" [class]="getAllColorClass()"
+    routerLink="/cars">
+    Renkler
+  </li>
+  <div class="mb-3 ">
+
+
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Renk Giriniz.">
   </div>
-<ul class="list-group">
-    <li (click)="setCurrentColor(color)"
-    routerLink="cars/color/{{color.colorId}}"
-    *ngFor="let color of colors" 
-    [class]="getCurrentColorClass(color)">{{color.colorName}} </li>
+
+
+  <li class="list-group-item bg-light" (click)="setCurrentColor(color)" routerLink="/cars/color/{{color.colorId}}"
+    *ngFor="let color of colors |filterPipeColor:filterText,filter" [class]="getCurrentColorClass(color)"
+    class="form-check-label">
+    {{color.colorName}}
+  </li>
+
+
 </ul>
- 

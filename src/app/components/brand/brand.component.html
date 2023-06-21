@@ -1,12 +1,16 @@
-<div class="text-center text-bg-dark p-3">
-    <strong>Markalar</strong>
-  </div>
 <ul class="list-group">
-    <li (click)="setCurrentBrand(brand)" 
-    routerLink="cars/brand/{{brand.brandId}}"
-    *ngFor="let brand of brands" 
-    [class]=" getCurrentBrandClass(brand)">{{brand.brandName}} </li>
-</ul> 
+  <li class="list-group-item text-center text-white bg-dark" (click)="reset()" [class]="getAllBrandClass()"
+    routerLink="/cars">
+    Markalar
+  </li>
 
+  <div class="mb-3 ">
 
-
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Marka Giriniz.">
+  </div>
+  <li class="list-group-item bg-light" (click)="setCurrentBrand(brand)" routerLink="/cars/brand/{{brand.brandId}}"
+    *ngFor="let brand of brands |filterPipeBrand:filterText,filter" [class]="getCurrentBrandClass(brand)"
+    class="form-check-label">
+    {{brand.brandName}}
+  </li>
+</ul>

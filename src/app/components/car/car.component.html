@@ -1,7 +1,6 @@
 <div class="row">
     <div>
     </div>
-
     <div class="mb-3">
       <label for="filterText"  class="form-label">Markasına göre ara</label>
       <input type="text" [(ngModel)]="filterText" class="form-control"  id="filterText" 
@@ -10,7 +9,39 @@
     <div *ngIf="filterText.length>2" class="alert alert-success">
   {{filterText}} aradınız.
     </div>
+    <div class="col-md-4">
+      <select
+        [(ngModel)]="brandFilter"
+        class="form-select mb-3"
+        aria-label=".form-select-lg example"
+      >
+        <option value="0" selected>Marka Seçiniz.</option>
+        <option *ngFor="let brand of brands" [value]="brand.brandId">
+          {{ brand.brandName }}
+        </option>
+      </select>
+    </div>
+    <div class="col-md-4">
+      <select
+        [(ngModel)]="colorFilter"
+        class="form-select mb-3"
+        aria-label=".form-select-lg example"
+      >
+        <option value="0" selected>Renk Seçiniz.</option>
+        <option *ngFor="let color of colors" [value]="color.colorId">
+          {{ color.colorName }}
+        </option>
+      </select>
+    </div>
     <div class="col-md-1 buton">
+      <button
+        (click)="getCarsByColorAndBrand(brandFilter, colorFilter)"
+   
+        type="button"
+        class="btn btn-success"
+      >
+        Filitrele
+      </button>
     </div>
     <div class="cardbody"
     (click)="setCurrentCar(car)"

@@ -18,13 +18,16 @@ export class CarComponent implements OnInit{
   cars : Car[]=[];
   brands: Brand[]=[];
   colors : Color[]=[];
-  filterText="";
+  
   
   imageUrl="https://localhost:44326/uploads/images/";
   carImages:CarImage[]=[];
   
   dataLoaded = false ;
   currentCar:Car | null;
+  brandFilter:number=0;
+  colorFilter:number=0;
+  filterText="";
 
   
   constructor(private httpClient:HttpClient,
@@ -41,7 +44,7 @@ export class CarComponent implements OnInit{
         this.getCarsByBrand(params["brandId"])
       }
       else if(params["colorId"] ){
-        this.getCarByColor(params["colorId"])
+        this.getCarsByColor(params["colorId"])
       }
       else if (params["carId"]) {
         this.getCarById(params["carId"])
@@ -70,9 +73,9 @@ export class CarComponent implements OnInit{
     this.colorService.getColors().subscribe(response=>{
       this.colors = response.data;
     });
-  }
-  getCarByColor(colorId:number){
-    this.carService.getCarByColor(colorId)
+  } 
+  getCarsByColor(colorId:number){
+    this.carService.getCarsByColor(colorId)
     .subscribe((response)=>{
       this.cars=response.data;
       this.dataLoaded=true;

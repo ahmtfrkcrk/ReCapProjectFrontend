@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { CarImage } from 'src/app/models/carImage';
 import { CarImageService } from 'src/app/services/car-image.service';
@@ -19,7 +20,9 @@ export class CarDetailDtoComponent implements OnInit{
   dataLoaded=false;
   constructor(private carService:CarService,
     private carImageService:CarImageService,
-    private activatedRoute:ActivatedRoute){}
+    private activatedRoute:ActivatedRoute,
+    private toastrService:ToastrService
+    ){}
 
   ngOnInit(): void {
    
@@ -47,5 +50,8 @@ getCarById(id:number) {
 } 
 setCurrentCar(car:Car){
   this.currentCar=car;
+}
+addToCart(car:Car){
+this.toastrService.success("Sepete Eklendi.",car.brandName)
 }
 }

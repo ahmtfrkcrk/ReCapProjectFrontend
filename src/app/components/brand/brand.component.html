@@ -9,7 +9,7 @@
     <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Marka Giriniz.">
   </div>
   <li class="list-group-item bg-light" (click)="setCurrentBrand(brand)" routerLink="/cars/brand/{{brand.brandId}}"
-    *ngFor="let brand of brands |filterPipeBrand:filterText,filter" [class]="getCurrentBrandClass(brand)"
+    *ngFor="let brand of brands |brandFilterPipe:filterText,filter" [class]="getCurrentBrandClass(brand)"
     class="form-check-label">
     {{brand.brandName}}
   </li>

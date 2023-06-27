@@ -12,7 +12,7 @@
 
 
   <li class="list-group-item bg-light" (click)="setCurrentColor(color)" routerLink="/cars/color/{{color.colorId}}"
-    *ngFor="let color of colors |filterPipeColor:filterText,filter" [class]="getCurrentColorClass(color)"
+    *ngFor="let color of colors |colorFilterPipe:filterText,filter" [class]="getCurrentColorClass(color)"
     class="form-check-label">
     {{color.colorName}}
   </li>

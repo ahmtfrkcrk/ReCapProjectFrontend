@@ -2,9 +2,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Color } from '../models/color';
 
 @Pipe({
-  name: 'filterPipeColor'
+  name: 'colorFilterPipe'
 })
-export class FilterPipeColorPipe implements PipeTransform {
+export class ColorFilterPipePipe implements PipeTransform {
 
   transform(value: Color[], filterText:string): Color[] {
     

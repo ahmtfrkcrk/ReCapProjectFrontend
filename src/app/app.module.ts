@@ -14,12 +14,14 @@ import { CarDetailDtoComponent } from './components/carDetailDto/carDetailDto.co
 import { RentalDetailDtoComponent } from './components/rentalDetailDto/rentalDetailDto.component';
 import { CarImageComponent } from './components/car-image/car-image.component';
 import { CarComponent } from './components/car/car.component';
-import { FilterPipeBrandPipe } from './pipes/filter-pipe-brand.pipe';
-import { FilterPipeColorPipe } from './pipes/filter-pipe-color.pipe';
-import { FilterPipeCarPipe } from './pipes/filter-pipe-car.pipe';
+import { RentalComponent } from './components/rental/rental.component';
+import { BrandFilterPipePipe } from './pipes/brand-filter-pipe.pipe';
+import { ColorFilterPipePipe } from './pipes/color-filter-pipe.pipe';
+import { CarFilterPipePipe } from './pipes/car-filter-pipe.pipe';
 
 import { ToastrModule } from 'ngx-toastr';
-import { RentalComponent } from './components/rental/rental.component';
+import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
+
 
 @NgModule({
   declarations: [
@@ -32,10 +34,11 @@ import { RentalComponent } from './components/rental/rental.component';
     NaviComponent,
     CarImageComponent,
     CarComponent,
-    FilterPipeBrandPipe,
-    FilterPipeColorPipe,
-    FilterPipeCarPipe,
-    RentalComponent
+    BrandFilterPipePipe,
+    ColorFilterPipePipe,
+    CarFilterPipePipe,
+    RentalComponent,
+    CartSummaryComponent
   ],
   imports: [
     BrowserModule,

@@ -2,9 +2,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { Car } from '../models/car';
 
 @Pipe({
-  name: 'filterPipeCar'
+  name: 'carFilterPipe'
 })
-export class FilterPipeCarPipe implements PipeTransform {
+export class CarFilterPipePipe implements PipeTransform {
 
   transform(value: Car[], filterText:string): Car[] {
    

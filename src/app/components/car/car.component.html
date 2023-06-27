@@ -40,14 +40,14 @@
         type="button"
         class="btn btn-success"
       >
-        Filitrele
+        Filtrele
       </button>
     </div>
     <div class="cardbody"
     (click)="setCurrentCar(car)"
     routerLink="/cars/car/{{ car.carId }}"
       class="col-md-4"
-      *ngFor="let car of cars | filterPipeCar:filterText">
+      *ngFor="let car of cars | carFilterPipe:filterText">
       <div class="card" style="width: 18rem">
           <img
             [src]="getCarImage(car)"

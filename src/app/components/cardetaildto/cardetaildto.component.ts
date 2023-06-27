@@ -5,6 +5,7 @@ import { Car } from 'src/app/models/car';
 import { CarImage } from 'src/app/models/carImage';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-carDetailDto',
@@ -21,7 +22,8 @@ export class CarDetailDtoComponent implements OnInit{
   constructor(private carService:CarService,
     private carImageService:CarImageService,
     private activatedRoute:ActivatedRoute,
-    private toastrService:ToastrService
+    private toastrService:ToastrService,
+    private cartService:CartService
     ){}
 
   ngOnInit(): void {
@@ -52,6 +54,8 @@ setCurrentCar(car:Car){
   this.currentCar=car;
 }
 addToCart(car:Car){
-this.toastrService.success("Sepete Eklendi.",car.brandName)
+  this.toastrService.success("Araç Sepete Eklendi.",car.brandName)
+  this.cartService.addToCart(car);
+
 }
 }

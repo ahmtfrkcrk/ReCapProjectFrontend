@@ -1,11 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Brand } from '../models/brand';
-import { filter } from 'rxjs';
 
 @Pipe({
-  name: 'filterPipeBrand'
+  name: 'brandFilterPipe'
 })
-export class FilterPipeBrandPipe implements PipeTransform {
+export class BrandFilterPipePipe implements PipeTransform {
 
   transform(value: Brand[], filterText:string): Brand[] {
     filterText=filterText?filterText.toLocaleLowerCase():"";

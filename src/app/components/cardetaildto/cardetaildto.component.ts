@@ -56,6 +56,7 @@ setCurrentCar(car:Car){
 addToCart(car:Car){
   this.toastrService.success("Araç Sepete Eklendi.",car.brandName)
   this.cartService.addToCart(car);
+}
 
 }
-}
+

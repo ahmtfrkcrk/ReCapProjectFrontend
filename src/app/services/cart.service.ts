@@ -20,8 +20,15 @@ export class CartService {
       CartItems.push(cartItem)
     }
   }
+  removeFromCart(car: Car) {
+    let itemIndex: number = CartItems.findIndex(c => c.car.carId === car.carId);
+
+    if (itemIndex !== -1) {
+        CartItems.splice(itemIndex, 1);
+    }
+}
   // removeFromCart(car:Car){
-  //   let item:CartItem=CartItems.find(c=>c.car.carId===c.car.carId);
+  //   let item:CartItem | undefined =CartItems.find(c=>c.car.carId===c.car.carId);
   //   CartItems.splice(CartItems.indexOf(item),1);
   // }
   list():CartItem[]{

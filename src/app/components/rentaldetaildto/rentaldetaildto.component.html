@@ -1,21 +1,24 @@
 <div *ngIf="dataLoaded==false" class="spinner-border text-danger" role="status">
     <span class="visually-hidden">Loading...</span>
 </div>
-<table *ngIf="dataLoaded==true" class="table table-bordered border-primary">
+<table *ngIf="dataLoaded==true" class="table table-bordered border-dark table-dark">
     <thead>
         <tr>
-            <th class="text-bg-primary p-3">Id</th>
-            <th class="text-bg-primary p-3">Brand Name</th>
-            <th class="text-bg-primary p-3">Customer Name</th>
-            <th class="text-bg-primary p-3">Rent Date</th>
-            <th class="text-bg-primary p-3">Return Date</th>
+            <th class="bg-dark text-light p-3 border-dark">Id</th>
+            <th class="bg-dark text-light p-3 border-dark">Brand Name</th>
+            <th class="bg-dark text-light p-3 border-dark">Customer Name</th>
+            <th class="bg-dark text-light p-3 border-dark">Rent Date</th>
+            <th class="bg-dark text-light p-3 border-dark">Return Date</th>
         </tr>
     </thead>
-    <tr *ngFor="let rentalDetail of rentalDetails">
-        <td class="text-bg-light p-3">{{rentalDetail.id}}</td>
-        <td class="text-bg-light p-3">{{rentalDetail.brandName}}</td>
-        <td class="text-bg-light p-3">{{rentalDetail.customerName}}</td>
-        <td class="text-bg-light p-3">{{rentalDetail.rentDate}}</td>
-        <td class="text-bg-light p-3">{{rentalDetail.returnDate}}</td>
-    </tr>
+    <tbody>
+        <tr *ngFor="let rentalDetail of rentalDetails">
+            <td class="bg-light text-dark p-3 border-dark">{{rentalDetail.id}}</td>
+            <td class="bg-light text-dark p-3 border-dark">{{rentalDetail.brandName}}</td>
+            <td class="bg-light text-dark p-3 border-dark">{{rentalDetail.customerName}}</td>
+            <td class="bg-light text-dark p-3 border-dark">{{rentalDetail.rentDate}}</td>
+            <td class="bg-light text-dark p-3 border-dark">{{rentalDetail.returnDate}}</td>
+        </tr>
+    </tbody>
 </table>
+

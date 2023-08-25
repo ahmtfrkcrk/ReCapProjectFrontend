@@ -24,7 +24,7 @@ export class PayComponent implements OnInit{
         fullName:["",Validators.required],
         cardNumber:["",Validators.required],
         cvv:["",Validators.required],
-        mount:["",Validators.required],
+        month:["",Validators.required],
         year:["",Validators.required],
       })
     }

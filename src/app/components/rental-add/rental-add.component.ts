@@ -3,6 +3,7 @@ import { FormBuilder, Validators,FormControl, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Rental } from 'src/app/models/rental';
 import { RentalService } from 'src/app/services/rental.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-rental-add',
@@ -13,7 +14,8 @@ export class RentalAddComponent implements OnInit {
   rentalAddForm: FormGroup;
   constructor(private formBuilder:FormBuilder,
     private rentalService:RentalService,
-    private toastrService:ToastrService){}
+    private toastrService:ToastrService,
+    private router:Router){}
 
     ngOnInit(): void {
       this.createRentalAddForm();
@@ -23,6 +25,7 @@ export class RentalAddComponent implements OnInit {
       this.rentalAddForm=this.formBuilder.group({
         carId:["",Validators.required],
         rentDate:["",Validators.required],
+        returnDate:["",Validators.required],
         customerId:["",Validators.required]
       })
     }
@@ -31,8 +34,9 @@ export class RentalAddComponent implements OnInit {
         let rental:Rental = Object.assign({}, this.rentalAddForm.value);
         
           this.rentalService.addRental(rental).subscribe(response=>{
-          this.toastrService.success(response.message, "Başarılı!");
-         
+          this.toastrService.success(response.message, "Başarılı! Ödeme Sayfasına Yönlendiriliyorsunuz...");
+          this.router.navigate(['/payment/pay']);
+
         } ,responseError=>{  
           console.log(responseError.error.message)
 

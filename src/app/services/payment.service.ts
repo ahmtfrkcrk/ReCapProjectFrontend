@@ -21,6 +21,7 @@ export class PaymentService {
   }
   addPayments(pay:Payment):Observable<ResponseModel>{
 
-    return this.httpClient.post<ResponseModel>(this.apiUrl+'pay',pay);
+    let newPath=this.apiUrl+'pay';
+    return this.httpClient.post<ResponseModel>(newPath,pay);
   }
 }

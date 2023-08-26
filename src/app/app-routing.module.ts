@@ -5,6 +5,7 @@ import { CarDetailDtoComponent } from './components/carDetailDto/carDetailDto.co
 import { RentalDetailDtoComponent } from './components/rentalDetailDto/rentalDetailDto.component';
 import { RentalAddComponent } from './components/rental-add/rental-add.component';
 import { PayComponent } from './components/pay/pay.component';
+import { BrandAddComponent } from './components/brand-add/brand-add.component';
 
 const routes: Routes = [
   {path:"", pathMatch:"full",component:CarComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:"rentals",component:RentalDetailDtoComponent},
   {path:"rentals/add",component:RentalAddComponent},
   {path:"payment/pay",component:PayComponent},
+  {path:"brands/add",component:BrandAddComponent}
 ];
 
 @NgModule({

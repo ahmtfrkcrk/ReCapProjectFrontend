@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,8 +23,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { PayComponent } from './components/pay/pay.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { RentalAddComponent } from './components/rental-add/rental-add.component';
+import { BrandAddComponent } from './components/brand-add/brand-add.component';
 
 
 @NgModule({
@@ -45,7 +45,8 @@ import { RentalAddComponent } from './components/rental-add/rental-add.component
     CartSummaryComponent,
     PaymentComponent,
     PayComponent,
-    RentalAddComponent
+    RentalAddComponent,
+    BrandAddComponent
   ],
   imports: [
     BrowserModule,

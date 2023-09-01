@@ -25,6 +25,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { PayComponent } from './components/pay/pay.component';
 import { RentalAddComponent } from './components/rental-add/rental-add.component';
 import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import { ColorAddComponent } from './components/color-add/color-add.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { BrandAddComponent } from './components/brand-add/brand-add.component';
     PaymentComponent,
     PayComponent,
     RentalAddComponent,
-    BrandAddComponent
+    BrandAddComponent,
+    ColorAddComponent
   ],
   imports: [
     BrowserModule,

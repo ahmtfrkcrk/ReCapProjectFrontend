@@ -34,23 +34,22 @@ export class CarAddComponent implements OnInit {
   }
   add(){
     if(this.carAddForm.valid){
-      console.log("Form is valid :",this.carAddForm.value)
     let carModel=Object.assign({},this.carAddForm.value)
     this.carService.add(carModel).subscribe(response=>{
-      this.toastrService.success(response.message,"Başarılı");
-    },
-    //Aynı marka ismi tekrar eklenemez mukerrer kontrol yapıyorum.
-    (responseError: any) => {
-      if (responseError.error && responseError.error.message) {
-        this.toastrService.error(responseError.error.message, "Hata");
-      } else if (responseError.error && responseError.error.ValidationErrors) {
-        (responseError.error.ValidationErrors as any[]).forEach((error) => {
-          this.toastrService.error(error.message, "Doğrulama Hatası");
-        });
+      this.toastrService.success(response.message,"Başarılı")
+    },responseError=>{
+      if(responseError.error && responseError.error.message){
+        this.toastrService.error(responseError.error.message,"Hata");
+      }
+      if (responseError.error.ValidationErrors.length > 0) {
+        for (let i = 0; i < responseError.error.ValidationErrors.length; i++) {
+          this.toastrService.error(responseError.error.ValidationErrors[i].ErrorMessage,"Doğrulama Hatası")
+    }
       }
     })
+    
   }else
-  {
+  { 
     this.toastrService.error("Formunuz eksik","Dikkat");
   }
   }

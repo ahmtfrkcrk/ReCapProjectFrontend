@@ -8,6 +8,8 @@ import { PayComponent } from './components/pay/pay.component';
 import { BrandAddComponent } from './components/brand-add/brand-add.component';
 import { ColorAddComponent } from './components/color-add/color-add.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
+import { LoginComponent } from './components/login/login.component';
+import { LoginGuard } from './guards/login.guard';
 
 
 const routes: Routes = [
@@ -21,7 +23,8 @@ const routes: Routes = [
   {path:"payment/pay",component:PayComponent},
   {path:"brands/add",component:BrandAddComponent},
   {path:"colors/add",component:ColorAddComponent},
-  {path:"cars/add",component:CarAddComponent}
+  {path:"cars/add",component:CarAddComponent,canActivate:[LoginGuard]},
+  {path:"login",component:LoginComponent}
 ];
 
 @NgModule({

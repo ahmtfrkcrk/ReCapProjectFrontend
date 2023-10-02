@@ -3,14 +3,15 @@ import { FormGroup,FormControl,Validators,FormBuilder } from "@angular/forms";
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
+
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class LoginComponent implements OnInit {
+export class RegisterComponent implements OnInit {
   
-  loginForm:FormGroup;
+  registerForm:FormGroup;
   constructor(private formBuilder:FormBuilder,
               private authService:AuthService,
               private toastrService:ToastrService,
@@ -18,23 +19,25 @@ export class LoginComponent implements OnInit {
   
   
   ngOnInit(): void {
-    this.createLoginForm();
+    this.createRegisterForm();
   }
 
-  createLoginForm(){
-    this.loginForm=this.formBuilder.group({
+  createRegisterForm(){
+    this.registerForm=this.formBuilder.group({
+      firstName:["",Validators.required],
+      lastName:["",Validators.required],
       email: ["",Validators.required],
       password: ["",Validators.required]
     })
   }
-  login(){
-    if (this.loginForm.valid) 
+  register(){
+    if (this.registerForm.valid) 
     {
-    console.log(this.loginForm.value) ;
-    let loginModel=Object.assign({},this.loginForm.value)
-    this.authService.login(loginModel).subscribe(response=>{
+    console.log(this.registerForm.value) ;
+    let loginModel=Object.assign({},this.registerForm.value)
+    this.authService.register(loginModel).subscribe(response=>{
       console.log(response);
-      this.toastrService.success(response.message,"Giriş Başarılı")
+      this.toastrService.success(response.message,"Kayıt Başarılı")
       localStorage.setItem("token",response.data.token);
       this.router.navigate(["/cars"]);
     },responseError=>{

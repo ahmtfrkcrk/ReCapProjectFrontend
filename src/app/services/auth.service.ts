@@ -3,6 +3,7 @@ import { LoginModel } from '../models/loginModel';
 import { HttpClient } from '@angular/common/http';
 import { TokenModel } from '../models/tokenModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
+import { RegisterModel } from '../models/registerModel';
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,8 @@ export class AuthService {
       return false;
 
     }
+  }
+  register(user:RegisterModel){
+    return this.httpClient.post<SingleResponseModel<TokenModel>>(this.apiUrl+'register',user)
   }
 }

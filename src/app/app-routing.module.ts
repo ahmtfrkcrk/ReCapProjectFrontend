@@ -10,6 +10,7 @@ import { ColorAddComponent } from './components/color-add/color-add.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { LoginComponent } from './components/login/login.component';
 import { LoginGuard } from './guards/login.guard';
+import { RegisterComponent } from './components/register/register.component';
 
 
 const routes: Routes = [
@@ -19,12 +20,13 @@ const routes: Routes = [
   {path:"cars/brand/:brandId",component:CarComponent},
   {path:"cars/car/:carId",component:CarDetailDtoComponent},
   {path:"rentals",component:RentalDetailDtoComponent},
-  {path:"rentals/add",component:RentalAddComponent},
+  {path:"rentals/add",component:RentalAddComponent,canActivate:[LoginGuard]},
   {path:"payment/pay",component:PayComponent},
-  {path:"brands/add",component:BrandAddComponent},
-  {path:"colors/add",component:ColorAddComponent},
+  {path:"brands/add",component:BrandAddComponent,canActivate:[LoginGuard]},
+  {path:"colors/add",component:ColorAddComponent,canActivate:[LoginGuard]},
   {path:"cars/add",component:CarAddComponent,canActivate:[LoginGuard]},
-  {path:"login",component:LoginComponent}
+  {path:"login",component:LoginComponent},
+  {path:"register",component:RegisterComponent}
 ];
 
 @NgModule({
